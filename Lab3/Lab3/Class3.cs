@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Worker:Persona
+    public class Worker:Person
     {
-        private string Job;
-        private string Wage;
+        private string job;
+        private string wage;
         private string timeshift;
+        public Worker(string job,string wage,string timeshift)
+        {
+            this.job = job;
+            this.wage = wage;
+            this.timeshift = timeshift;
+                }
     }
 }

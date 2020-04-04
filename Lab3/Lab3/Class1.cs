@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Persona
+    public abstract class Person
     {
-        public string name;
-        public string lastname;
-        public string dateofbirth;
-        public int RUT;
+        abstract public string name();
+        abstract public string lastname();
+        abstract public string dateofbirth();
+        abstract public int RUT();
+        public void info()
+        { Console.WriteLine("Nombre: "+ name() + "" + lastname());
+            Console.WriteLine("Fecha de nacimiento: "+dateofbirth());
+            Console.WriteLine("RUT: " + RUT());
+        }
     }
 }
