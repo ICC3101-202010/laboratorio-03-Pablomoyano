@@ -12,12 +12,16 @@ namespace Lab3
         private string brand;
         private int price;
         private int stock;
-        public Product(string productname,string brand,int price,int stock)
+        public Product(string productname, string brand, int price, int stock)
         { this.productname = productname;
             this.brand = brand;
             this.price = price;
             this.stock = stock;
 
+        }
+        public int lowerstock(int numstock,int quantbuy)
+        { numstock = numstock - quantbuy;
+            return numstock;
         }
 
     }
