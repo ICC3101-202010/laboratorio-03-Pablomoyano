@@ -46,10 +46,33 @@ namespace Lab3
                 r = r + 1;
             } }
         
-        public int lowerstock(int numstock,int quantbuy)
-        { numstock = numstock - quantbuy;
-            return numstock;
+        
+        public int changestock(int o,int p)
+        { int stockactual = infostock[p];
+            int nuevostock = stockactual - o;
+            return nuevostock;
         }
-
+        public void stockchanged(int ns,int p )
+        { int stocknow = infostock[p];
+            infostock.Insert(index: p, item: ns);
+            infostock.RemoveAt(index: p + 1);
+        }
+        public int summary(int p,int q)
+        {int valor= infopri[p];
+            int valoractual = valor * q;
+            return valoractual;
+        }
+        public string addcarro(int p)
+        { string pr = infonpn[p];
+            return pr;
+        }
+        public string addcarro2(int p)
+        { string marc = infobrand[p];
+            return marc;
+        }
+        public int precios(int p)
+        {
+            int pre = infopri[p];
+                return pre; }
     }
 }

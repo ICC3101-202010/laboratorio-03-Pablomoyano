@@ -128,7 +128,69 @@ namespace Lab3
                 {while (ns==5)
                     { Product nc = new Product();
                         nc.showproducts();
-                        Console.WriteLine("Eliga el producto que quiera:");
+                        Console.WriteLine("Quiere comprar? presione 7 para comprar o 8 para salir:");
+                        int lc = Convert.ToInt32(Console.ReadKey());
+                        if (lc==7)
+                        {while (lc==7)
+                            { Console.WriteLine("Escriba el rut del cliente:");
+                                string rc = Console.ReadLine();
+                                Console.WriteLine("Escriba el rut del cajero:");
+                                string rs = Console.ReadLine();
+                                Person client = new Person();
+                                Worker cajero = new Worker();
+                                int indexcliente= client.findclient(rc);
+                                int indexcajero = cajero.findworker(rs);
+                                string fn = client.namegot(indexcliente);
+                                string lastn = client.lngot(indexcliente);
+                                string wfn = cajero.findname(indexcajero);
+                                string wln = cajero.findln(indexcajero);
+                                string nombrecliente = fn + "" + lastn;
+                                string nombrecajero = wfn + "" + wln;
+                                List<string> carroproductos = new List<string>();
+                                List<string> carromarcas = new List<string>();
+                                List<int> mercado = new List<int>();
+                                Console.WriteLine("Se empezara a usar el carro,presione 1 para continuar.");
+                                int carro = Convert.ToInt32(Console.ReadKey());
+                                while (carro == 1)
+                                {
+                                    Product now = new Product();
+                                    Console.WriteLine("Escriba el numero del producto que desea agregar al carro:");
+                                    int adc = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine("Escriba la cantidad que desea agregar:");
+                                    int adcn = Convert.ToInt32(Console.ReadLine());
+                                    int q=now.changestock(adc, adcn);
+                                    if (q>0)
+                                    { now.stockchanged(q, adc);
+                                        string p = now.addcarro(adc);
+                                        string m = now.addcarro2(adc);
+                                        carroproductos.Add(p);
+                                        carromarcas.Add(m);
+                                        int pr = now.precios(adc);
+                                        mercado.Add(pr);
+                                    }
+                                    else
+                                    { Console.WriteLine("No ha sido posible agregar el producto debido a falta de stock"); }
+                                    Console.WriteLine("Presione 1 para seguir añadiendo al carro,presione otra tecla para ir al final.");
+                                    carro = Convert.ToInt32(Console.ReadKey());
+                                }
+                                Console.WriteLine("Estas han sido sus compras");
+                                int i = carroproductos.Count();
+                                int f = 0;
+                                int g = 0;
+                                while (f<i)
+                                { Console.WriteLine(carroproductos[f]+""+carromarcas[f]+""+mercado[f]);
+                                    g = g + mercado[f];
+                                    f = f + 1;
+
+                                }
+                                Console.WriteLine("El precio total es: " + g);
+                                Console.WriteLine("El cliente fue: "+ nombrecliente);
+                                Console.WriteLine("El cajero fue:" + nombrecajero);
+                                Console.WriteLine("Gracias por usar el servicio,tenga un buen dia.");
+
+
+                            }
+                        }
 
                     }
                 }
