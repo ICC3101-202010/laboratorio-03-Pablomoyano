@@ -17,8 +17,27 @@ namespace Lab3
             this.wage = wage;
             this.timeshift = timeshift;
         }
-        
-        public void cambiaempleo()
+        List<string> workername = new List<string>();
+        List<string> workerlastname = new List<string>();
+        List<string> workerrut = new List<string>();
+        List<string> workerdob = new List<string>();
+        List<string> workernat = new List<string>();
+        List<string> workerjob = new List<string>();
+        List<int> workerwage = new List<int>();
+        List<string> workerts = new List<string>();
+
+        public void infot(string nwo,string nlana,string wru,string wdob,string wnat,string wjo,int ww,string wots)
+        { workername.Add(nwo);
+            workerlastname.Add(nlana);
+            workerrut.Add(wru);
+            workerdob.Add(wdob);
+            workernat.Add(wnat);
+            workerjob.Add(wjo);
+            workerwage.Add(ww);
+            workerts.Add(wots);
+        }
+
+        public void cambiaempleo(string wn,string wln,string wr,string wd,string wna)
         { Console.WriteLine("Introduzca el nuevo empleo:");
             string nj;
             nj = Console.ReadLine();
@@ -29,9 +48,11 @@ namespace Lab3
             Console.WriteLine("Introduzca el horario de trabajo:");
             string nt;
             nt = Console.ReadLine();
+            Worker newj = new Worker(wn, wln, wr, wd, wna, nj, tnw, nt);
+            newj.job = nj;
+            newj.wage = tnw;
+            newj.timeshift = nt;
         }
-        public void workerinfo()
-        {
-                }
+        
     }
 }
