@@ -19,6 +19,19 @@ namespace Lab3
             this.stock = stock;
 
         }
+        List<string> infonpn= new List<string>();
+        List<string> infobrand = new List<string>();
+        List<int> infostock= new List<int>();
+        List<int> infopri = new List<int>();
+        public void addpro(string pn,string br,int pr,int st)
+        {
+            infonpn.Add(pn);
+            infobrand.Add(br);
+            infopri.Add(pr);
+            infostock.Add(st);
+
+
+        }
         public int lowerstock(int numstock,int quantbuy)
         { numstock = numstock - quantbuy;
             return numstock;
