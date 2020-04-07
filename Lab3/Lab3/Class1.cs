@@ -20,11 +20,29 @@ namespace Lab3
             this.RUT = RUT;
             this.nationality = nationality;
         }
+        public Person()
+        { }
         List<string> infonames = new List<string>();
         List<string> infolastnames = new List<string>();
         List<string> infodate = new List<string>();
         List<string> inforut = new List<string>();
         List<string> infonat=new List<string>();
+
+
+        public int findclient(string ru)
+        { int dex= inforut.BinarySearch(ru);
+            return dex;
+        }
+        public string namegot(int dex)
+        { string n = infonames[dex];
+            return n;
+        }
+        public string lngot(int dex)
+        {
+            string lan = infolastnames[dex];
+            return lan;
+        }
+
         public void addinfo(string n, string ln, string d, string r, string nat)
         {
             infonames.Add(n);

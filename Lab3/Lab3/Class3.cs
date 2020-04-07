@@ -11,14 +11,17 @@ namespace Lab3
         private string job { get; set; }
         private int wage { get; set; }
         private string timeshift { get; set; }
+        
         public Worker(string name, string lastname, string RUT, string dateofbirth, string nationality, string job, int wage, string timeshift) : base(name, lastname, RUT, dateofbirth, nationality)
         {
             this.job = job;
             this.wage = wage;
             this.timeshift = timeshift;
         }
-        
-        
+        public Worker()
+        { }
+
+
         List<string> workername = new List<string>();
         List<string> workerlastname = new List<string>();
         List<string> workerrut = new List<string>();
