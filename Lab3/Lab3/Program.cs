@@ -98,8 +98,25 @@ namespace Lab3
                 }
                 else if (ns==4)
                 {while(ns==4)
-                    { Console.WriteLine("Introduzca el rut del trabajador:");
+                    {
+                        Console.WriteLine("Introduzca el nombre:");
+                        string nwn = Console.ReadLine();
+                        Console.WriteLine("Introduzca el apellido:");
+                        string nwln = Console.ReadLine();
+                        Console.WriteLine("Introduzca la fecha de nacimiento");
+                        string nwd = Console.ReadLine();
+                        Console.WriteLine("Introduzca la nacionalidad");
+                        string nwna = Console.ReadLine();
+
+                        Console.WriteLine("Introduzca el rut del trabajador:");
                         string rwo = Console.ReadLine();
+                        Console.WriteLine("Introduzca el antiguo empleo:");
+                        string nwj = Console.ReadLine();
+                        Console.WriteLine("Introduzca el antiguo salario:");
+                        string nww = Console.ReadLine();
+                        int tnww = Int32.Parse(nww);
+                        Console.WriteLine("Introduzca el antiguo horario");
+                        string nwt = Console.ReadLine();
                         Console.WriteLine("Introduzca el nuevo empleo:");
                         string jwo = Console.ReadLine();
                         Console.WriteLine("Introduzca el salario:");
@@ -107,7 +124,13 @@ namespace Lab3
                         int twwo = Int32.Parse(wwo);
                         Console.WriteLine("Introduzca el horario");
                         string tswo = Console.ReadLine();
+                        Worker ch = new Worker(nwn,nwln,rwo,nwd,nwna,nwj,tnww,nwt);
+                        int t = ch.findworker(rwo);
+                        ch.changejob(t, jwo, twwo, tswo);
+                        ch.cambiaempleo(nwn, nwln, rwo, nwd, nwna, nwj, tnww, nwt);
 
+                        Console.WriteLine("Seleccione 1 para crear otro cliente,2 para crear un producto,3 para crear un trabajador,4 para editar a un trabajador o 5 para realizar compras");
+                        ns = Convert.ToInt32(Console.ReadKey());
                     }
                 }
                 else if(ns==5)

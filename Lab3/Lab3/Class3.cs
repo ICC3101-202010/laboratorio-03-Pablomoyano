@@ -11,12 +11,14 @@ namespace Lab3
         private string job { get; set; }
         private int wage { get; set; }
         private string timeshift { get; set; }
-        public Worker(string name,string lastname,string RUT,string dateofbirth,string nationality,string job, int wage, string timeshift):base(name,lastname,RUT,dateofbirth,nationality)
+        public Worker(string name, string lastname, string RUT, string dateofbirth, string nationality, string job, int wage, string timeshift) : base(name, lastname, RUT, dateofbirth, nationality)
         {
             this.job = job;
             this.wage = wage;
             this.timeshift = timeshift;
         }
+        
+        
         List<string> workername = new List<string>();
         List<string> workerlastname = new List<string>();
         List<string> workerrut = new List<string>();
@@ -26,6 +28,41 @@ namespace Lab3
         List<int> workerwage = new List<int>();
         List<string> workerts = new List<string>();
 
+        
+        public string findnat(int index)
+        {
+            string nat = workerlastname[index];
+            return nat;
+        }
+        public void changejob(int r,string njj,int nww,string ntss)
+        { workerjob.Insert(index: r, item: njj);
+            workerjob.RemoveAt(index: r + 1);
+            workerwage.Insert(index: r, item: nww);
+            workerwage.RemoveAt(index: r + 1);
+            workerts.Insert(index: r, item: ntss);
+            workerts.RemoveAt(index: r + 1);
+
+        }
+        public int findworker(string wru)
+        {
+            int index = workerrut.BinarySearch(wru);
+            return index;
+        }
+        public string findname(int index)
+        {
+            string n = workername[index];
+            return n;
+        }
+        public string findln(int index)
+        {
+            string ln = workerlastname[index];
+            return ln;
+        }
+        public string finddob(int index)
+        {
+            string dob = workerlastname[index];
+            return dob;
+        }
         public void infot(string nwo,string nlana,string wru,string wdob,string wnat,string wjo,int ww,string wots)
         { workername.Add(nwo);
             workerlastname.Add(nlana);
@@ -37,21 +74,12 @@ namespace Lab3
             workerts.Add(wots);
         }
 
-        public void cambiaempleo(string wn,string wln,string wr,string wd,string wna)
-        { Console.WriteLine("Introduzca el nuevo empleo:");
-            string nj;
-            nj = Console.ReadLine();
-            Console.WriteLine("Introduzca su pago:");
-            string nw;
-            nw = Console.ReadLine();
-            int tnw = Int32.Parse(nw);
-            Console.WriteLine("Introduzca el horario de trabajo:");
-            string nt;
-            nt = Console.ReadLine();
-            Worker newj = new Worker(wn, wln, wr, wd, wna, nj, tnw, nt);
-            newj.job = nj;
-            newj.wage = tnw;
-            newj.timeshift = nt;
+        public void cambiaempleo(string wn,string wln,string wr,string wd,string wna,string ntr,int nsal,string nho)
+        { 
+            Worker newj = new Worker(wn, wln, wr, wd, wna,ntr,nsal,nho);
+            newj.job = ntr;
+            newj.wage = nsal;
+            newj.timeshift = nho;
         }
         
     }
