@@ -183,7 +183,10 @@ namespace Lab3
                                     f = f + 1;
 
                                 }
+                                DateTime hora = DateTime.Now;
+                                DateTime fecha = DateTime.UtcNow;
                                 Console.WriteLine("El precio total es: " + g);
+                                Console.WriteLine("Hora de la compra: " + hora + " Fecha de la compra: " + fecha);
                                 Console.WriteLine("El cliente fue: "+ nombrecliente);
                                 Console.WriteLine("El cajero fue:" + nombrecajero);
                                 Console.WriteLine("Gracias por usar el servicio,tenga un buen dia.");
